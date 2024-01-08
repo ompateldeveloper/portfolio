@@ -97,12 +97,12 @@ function addMain(){
 
 function addStars(){
     const starsGeometry = new THREE.BufferGeometry();
-    const starsMaterial = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 0.1 });
+    const starsMaterial = new THREE.PointsMaterial({ color: 0xFFFFFF, size: 2 });
     const starsVertices = [];
-    for (let i = 0; i < 1000; i++) {
-        const x = (Math.random() - 0.5) * 200;
-        const y = (Math.random() - 0.5) * 200;
-        const z = (Math.random() - 0.5) * 200;
+    for (let i = 0; i < 2000; i++) {
+        const x = (Math.random() - 0.5) * 2000;
+        const y = (Math.random() - 0.5) * 2000;
+        const z = (Math.random() - 0.5) * 2000;
         starsVertices.push(x, y, z);
     }
     starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
