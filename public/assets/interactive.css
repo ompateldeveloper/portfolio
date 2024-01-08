@@ -1,0 +1,53 @@
+.logo .letter-a svg path{
+    stroke-dasharray: 143px;
+    stroke-dashoffset: 80px;
+    /* stroke-dashoffset: 286px; */
+    transition: 1s;
+}
+.logo .line path{
+    transition: 1s;
+    stroke-dasharray: 143px;
+    stroke-dashoffset: 80px;
+
+}
+.logo .letter-o svg path{
+    stroke-dasharray: 143px;
+    stroke-dashoffset: 80px;
+    /* stroke-dashoffset: 286px; */
+    transition: 1s;
+}
+.logo:hover .letter-a path{
+    stroke: blue;
+    stroke-dashoffset: 286px;
+}
+.logo:hover .letter-o path{
+    stroke: orangered;
+    stroke-dashoffset: 286px;
+}
+.logo:hover .line path{
+    stroke-dashoffset: 286px;
+    stroke: lime;
+    fill: lime;
+}
+.logo:hover .version{
+    color: white;
+    animation: flicker  3s infinite ;
+}
+
+.navs .about:hover{
+    background: rgba(255, 255, 255, 0.068);
+
+}
+.navs .about:hover .about-after{
+    transform: translateX(10px) scaleY(1.5);
+}
+.navs .about:hover .about-before{
+    transform: translateX(-10px) scaleY(1.5);
+}
+.portfolio-btn svg path{
+    stroke-dasharray: 360px;
+    stroke-dashoffset: 360px;
+    stroke-width: 2px;
+    /* stroke-dashoffset: 286px; */
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

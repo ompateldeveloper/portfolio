@@ -1,0 +1,270 @@
+ // let scene,camera,renderer,renderer1,renderer2;
+    // let composer,composer1,composer2;
+    // const fov = 45;
+    // const nearPlane = 1;
+    // const farPlane = 1000;
+    // let width,height;
+    // let controls,clock;
+    // let directionalLight,ambientLight;
+    // let outlinePass;
+    // let mixer = null;
+    // let animations;
+    // let isAnimationPlaying = false;
+
+    // let renderScene;
+    // let renderScene1;
+    // let renderScene2;
+    // let c = useRef();
+    // let c1 = useRef();
+    // let c2 = useRef();
+    // let currentAnimation;
+
+
+
+
+    // function init(){
+    //     width = c.current.clientWidth;
+    //     height = c.current.clientHeight;
+
+    //     scene = new THREE.Scene();
+
+
+    //     camera = new THREE.PerspectiveCamera(fov, width / height, nearPlane, farPlane);
+    //     camera.position.z = 48;
+
+    //     clock = new THREE.Clock();
+
+    //     renderer = new THREE.WebGLRenderer({ antialias: false });
+    //     renderer.setSize(width, height);
+    //     renderer.setClearColor(0xffffff, 0);
+    //     // renderer.outputColorSpace = THREE.SRGBColorSpace;
+        
+    //     renderer1 = new THREE.WebGLRenderer({ antialias: false });
+    //     renderer1.setSize(width, height);
+    //     renderer1.setClearColor(0xffffff, 0);
+    //     // renderer1.outputColorSpace = THREE.SRGBColorSpace;
+        
+    //     renderer2 = new THREE.WebGLRenderer({ antialias: false });
+    //     renderer2.setSize(width, height);
+    //     renderer2.setClearColor(0xffffff, 0);
+    //     // renderer2.outputColorSpace = THREE.SRGBColorSpace;
+
+ 
+    //     controls = new OrbitControls(camera, renderer1.domElement);
+    //     controls.enableDamping = true;
+    //     controls.dampingFactor = 0.2;
+    //     controls.rotateSpeed = 1;
+    //     controls.minPolarAngle = Math.PI / 2;
+    //     controls.maxPolarAngle = Math.PI / 2;
+    //     controls.enablePan = false;
+    //     controls.enableZoom = false;
+
+    //     ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    //     scene.add(ambientLight);
+      
+    //     directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    //     directionalLight.position.set(0, 32, 64);
+    //     scene.add(directionalLight);
+        
+
+        
+
+
+        
+    //     let glbModel;
+    //     // const glbModelPromise = new Promise((resolve, reject) => {
+    //         //     new GLTFLoader().load('./me.glb', resolve, undefined, reject);
+    //         // });
+    //     // glbModelPromise.then((gltf) => {
+    //     //     glbModel = gltf.scene;
+    //     //     glbModel.scale.set(15, 15, 15);
+    //     //     glbModel.position.set(0, -15+count, 0);
+    //     // //   const outlinePass = new OutlinePass(new THREE.Vector2(width, height), scene, camera);
+    //     //   outlinePass.selectedObjects = [glbModel];
+        
+    //     //   glbModel.traverse((child) => {
+    //     //     if (child.isMesh) {
+    //     //       child.material.transparent = true;
+    //     //       child.material.opacity = 0;
+    //     //     }
+    //     //   });
+      
+    //     //   scene.add(glbModel);
+    //     // }).catch((error) => {
+    //     //   console.error('Error loading GLB model:', error);
+    //     // });
+
+
+    //     new GLTFLoader().load('./me_ani.glb', (gltf) => {
+    //         glbModel = gltf.scene;
+    //         glbModel.scale.set(15, 15, 15);
+    //         glbModel.position.set(0, -15, 0);
+    //         glbModel.rotateY(Math.PI)
+
+    //         mixer = new THREE.AnimationMixer(glbModel);
+    //         animations = gltf.animations;
+    //         console.log(animations);
+    //         const introAction = mixer.clipAction(animations[0]);
+    //         currentAnimation=introAction
+    //         mixer.stopAllAction();
+    //         introAction.setLoop(THREE.LoopOnce);
+            
+    //         introAction.clampWhenFinished = true;
+            
+    //         isAnimationPlaying = true;
+    //         introAction.play();
+
+
+
+            
+    //         outlinePass.selectedObjects = [glbModel];
+    //         glbModel.traverse((child) => {
+    //             if (child.isMesh) {
+    //               child.material.transparent = true;
+    //               child.material.opacity = 0;
+    //             }
+    //           });
+
+    //         scene.add(glbModel);
+    //         },
+    //         undefined, (error) => {
+    //               console.error('Error loading GLB model:', error);
+    //     });
+
+
+
+    //     outlinePass = new OutlinePass(new THREE.Vector2(width, height), scene, camera);
+        
+    //     outlinePass.visibleEdgeColor.set(0xffffff); // Set the color of the outline
+    //     outlinePass.hiddenEdgeColor.set(0x000000); // Set the color of the hidden edges
+    //     // outlinePass.edgeGlow = 0; // Set the intensity of the glow effect on the outline
+    //     outlinePass.edgeThickness = 1.0; // Set the thickness of the outline
+    //     outlinePass.edgeStrength = 2.0;
+
+        
+    //     renderScene = new RenderPass(scene, camera);
+    //     renderScene1 = new RenderPass(scene, camera);
+    //     renderScene2 = new RenderPass(scene, camera);
+    //     composer = new EffectComposer(renderer);
+    //     composer1 = new EffectComposer(renderer1);
+    //     composer2 = new EffectComposer(renderer2);
+    //     composer.addPass(renderScene);
+    //     composer1.addPass(renderScene1);
+    //     composer2.addPass(renderScene2);
+    //     composer.addPass(outlinePass);
+    //     composer1.addPass(outlinePass);
+    //     composer2.addPass(outlinePass);
+
+
+    //     c.current.appendChild(renderer.domElement);
+      
+    //     c1.current.appendChild(renderer1.domElement);
+      
+    //     c2.current.appendChild(renderer2.domElement);
+
+
+
+        
+    //     function cEvent (){
+    //         console.log(currentAnimation);
+    //         const introAction = mixer.clipAction(animations[0]);
+    //         const smugAction = mixer.clipAction(animations[1]);
+            
+    //         // Stop any other ongoing animations before playing the new one.
+    //         mixer.stopAllAction();
+            
+    //         introAction.reset(); // Reset the animation to its initial state.
+    //         introAction.setLoop(THREE.LoopOnce);
+    //         introAction.clampWhenFinished = true;
+    //         introAction.crossFadeTo(smugAction,1)
+     
+    //         introAction.play();
+    //         console.log("playing...0");
+    //     }
+    //     c.current.addEventListener("mouseover",cEvent);
+        
+    //     function c1Event() {
+    //         console.log(currentAnimation);
+            
+    //         const introAction = mixer.clipAction(animations[0]);
+    //         const smugAction = mixer.clipAction(animations[1]);
+            
+    //         // Stop all active actions and reset the smugAction to its initial state
+    //         mixer.stopAllAction();
+    //         smugAction.reset();
+        
+    //         // Set the loop mode for the smug action to play only once
+    //         smugAction.setLoop(THREE.LoopOnce);
+    //         smugAction.clampWhenFinished = true;
+        
+    //         // Fade out the smugAction and fade in the introAction over 1 second
+    //         const crossfadeDuration = 1.0;
+    //         smugAction.crossFadeTo(introAction, crossfadeDuration);
+        
+    //         console.log("playing...1");
+    //     }
+        
+    //     c1.current.addEventListener("mouseover", c1Event);
+        
+          
+
+
+          
+          
+          
+          
+          
+        
+
+
+    //     animate();
+
+    // }
+    // const onWindowResize = () => {
+    //     width = c.current.clientWidth;
+    //     height = c.current.clientHeight;
+    //     camera.aspect = width / height;
+    //     camera.updateProjectionMatrix();
+    //     renderer.setSize(width, height);
+    //     renderer1.setSize(width, height);
+    //     renderer2.setSize(width, height);
+    // };
+    // function animate(){
+    //     window.requestAnimationFrame(animate);
+    //     if (mixer) {
+    //         const delta = clock.getDelta();
+    //         mixer.update(delta);
+    //     }
+    //     composer.render(scene, camera);
+    //     composer1.render(scene, camera);
+    //     composer2.render(scene, camera);
+    //     controls.update();
+    // }
+
+   
+
+    // useEffect(()=>{
+    //     init();
+    //     window.addEventListener("resize", onWindowResize, false);
+
+    //     return()=>{
+    //         window.removeEventListener("resize", onWindowResize, false); 
+    //         scene= undefined
+    //         camera= undefined
+    //         c.current.removeChild(renderer.domElement);
+    //         renderer= undefined
+    //         c1.current.removeChild(renderer1.domElement);
+    //         renderer1= undefined
+    //         c2.current.removeChild(renderer2.domElement);
+    //         renderer2= undefined
+    //         width = undefined
+    //         height = undefined
+    //         // controls = undefined 
+    //         directionalLight = undefined
+    //         ambientLight = undefined 
+    //         renderScene= undefined;
+    //         renderScene1= undefined;
+    //         renderScene2= undefined;
+        
+    //     }
+    // },[])

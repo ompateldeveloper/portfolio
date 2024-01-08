@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Syncopate:wght@400;700&display=swap');
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Syncopate';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    --white: white;
+    --secondary: rgb(151, 151, 151);
+    --black: black;
+}
+*{
+    /* outline: 1px solid limegreen; */
+    border-collapse: collapse;
+}
+body {
+    margin: 0;
+    top: 0;
+    /* height: 100vh; */
+    height: 100dvh;
+    overflow: hidden;
+    /* clip-path: polygon(0 0, 0 100%,100% 100%,100% 0); */
+    position: relative;
+    background: var(--black);
+    color: var(--white);    
+    
+    /* clip-path: polygon(0% 0%, 0% 100%,100% 100%,100% 0% ); */
+}
+canvas {
+    position: absolute;
+    top: 0px;
+    z-index: 200;
+    z-index: -1;
+    display: block;
+    background: transparent;
+}
+
+
+/* anaglyph effect class------------ */
+.anaglyph {
+    position: relative;
+}
+
+.anaglyph::before,
+.anaglyph::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition-delay: 0.1;
+}
+
+.anaglyph::before {
+    background: red; /* Adjust the color for the left eye */
+    transform: translateX(-3px);
+    z-index: 1;
+}
+
+.anaglyph::after {
+    background: cyan; /* Adjust the color for the right eye */
+    transform: translateX(3px);
+    z-index: 2;
+}
+  
+
+
+.card3d{
+  border-radius: 2px;
+  background: limegreen;
+  opacity: 0.5;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: min-content;
+    margin:0px 0 0 50px ;
+    padding-top: 25px;
+    display: block;
+    text-decoration: none;
+    
+    /* justify-content: start; */
+    /* position: absolute;
+    left: 50px;
+    top: 25px; */
+}
+.logo .line{
+    /* height: 1px; */
+    /* width: 40px; */
+    margin-right: 5px;
+    display: grid;
+}
+.logo .flex{
+    justify-content: start;
+}
+.logo .version{
+    color: var(--secondary);
+}
+.hero {
+    position: absolute;
+    top:48%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+}
+.hero .name .letter {
+    font-size: 3rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+    margin: 0 4px;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+
+    padding: 10px;
+    border-radius: 5px;
+}
+.hero .after-dots{
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    width: 100%;
+    height: 100%;
+    --dot-color:rgba(255, 255, 255, 0.438);
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+@media screen and (max-width:500){
+    .hero .after-dots{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+    }
+    
+}
+.hero .name{
+    display: flex;
+    width: min-content;
+    margin: 20px auto;
+    /* width: 327px; */
+    /* width:1%; */
+    /* opacity: 0; */
+    transform-origin: center;
+    overflow: hidden;
+}
+.hero .name-container{
+    display: flex;
+    align-self: center;
+    width: min-content;
+    align-items: center;
+    position: relative;
+}
+.hero .name-container .letter-a{
+    z-index: 11;
+    margin: 0 -4px;
+
+}
+
+.hero .name-container .before{
+    position: absolute;
+    top: 0px;
+    left: -15px;
+}
+.hero .name-container .after{
+    position: absolute;
+    right: -15px;
+    bottom: 0px;
+}
+.hero .job-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    transform: translateY(20px);
+    background-image: linear-gradient(135deg,rgba(255, 255, 255, 0.4),rgba(255, 255, 255, 0.74),rgba(255, 255, 255, 0.4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero .name .letter-semicolon{
+    margin:0 12px ;
+    /* display: block; */
+}
+.japanese-font {
+    display: inline;
+    letter-spacing: 7px;
+    position: absolute;
+    width: 40px;
+    margin: 16px;
+    font-size: 1.1rem;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgb(255, 255, 255),rgba(255, 255, 255, 0.1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+
+.navs .menu{
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    rotate: -90deg;
+}
+.navs .work{
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    rotate: 90deg;
+}
+.navs .about{
+    position: absolute;
+    cursor: pointer;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    left: calc( 50% - 50px );
+    transition: 500ms ;
+}
+.navs .about .about-after path{
+    stroke: rgba(255, 255, 255, 0.543);
+
+
+}
+.navs .about .about-after{
+    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.navs .about .about-before{
+    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.portfolio-btn{
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scale: 0.7;
+}
+.portfolio-btn svg{
+    position: absolute;
+}
+.portfolio-btn .icon{
+    position: absolute;
+    
+}
+.portfolio-btn .square-aura{
+    position: absolute;
+    width: 75px;
+    height:75px;
+    rotate: 45deg;
+    outline: 5px solid rgb(176, 176, 176);
+    opacity: 0;
+    
+}
+.portfolio-btn .icon >div{
+    height: 2px;
+    background: #fff; 
+    
+}
+.portfolio-btn .icon .arr1{
+    width: 30px;
+}
+.portfolio-btn .icon .arr2{
+    width: 20px;
+    transform: rotate(45deg) translate(4px,-16px);
+}
+.portfolio-btn .icon .arr3{
+    width: 20px;
+    transform: rotate(-45deg) translate(8px,12px);
+}
+
+
+
+@media screen and (max-width:500px) {
+    .hero{
+        top: 40%;
+    }
+    .hero .name-container {
+        scale: 0.8;
+
+    }
+    .hero .job-title{
+        text-align: center;
+
+    }
+    .hero .job-title span{
+        display: block;
+        /* font-size: 1.7rem; */
+    }
+    .japanese-font {
+        margin: 4px;
+        width: unset;
+        font-size: 0.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -30px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgb(255, 255, 255),rgba(255, 255, 255, 0.1));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+
+
+
+
